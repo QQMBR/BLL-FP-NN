@@ -10,4 +10,5 @@ von Bibliotheken wurde stack verwendet.
 
 Die Namen einiger Funktionen sind anders as in der BLL (Bsp.: sigmoid statt logisticSchicht).
 
-
+Teile des Codes, wie die Tuple.hs und Funktionen aus Network.hs sind von Justin Les Repository:
+https://github.com/mstksg/inCode
