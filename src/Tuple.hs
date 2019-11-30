@@ -92,30 +92,7 @@ uncurryT
     -> BVar z c
 uncurryT f x = f (x ^^. t1) (x ^^. t2)
 
-normalize :: KnownNat n => SVS.Vector n Double -> SVS.Vector n Double
-normalize v = SVS.map (\x -> (x - meanv) / stdv) v
-    where mean x = SVS.sum x / fromIntegral (SVS.length x) 
-          std    = (** 0.5) . mean . SVS.map ((^2) . subtract (mean v))
-          meanv  = mean v
-          stdv   = std  v
-
-{-
-instance (KnownNat n, KnownNat m) => Random (L n m) where
-    random = runState $ (vecL . normalize) <$> SVS.replicateM (state random)
-    randomR (xs,ys) = runState . fmap vecL $ SVS.zipWithM (curry (state . randomR))
-        (lVec xs) (lVec ys)
-
-instance (KnownNat n) => Random (R n) where
-    random = runState $ (vecR . normalize) <$> SVS.replicateM (state random)
-    {-
-        where norm mn v = SVS.map (\x -> (x - mn)/(std mn v)^0.5) v
-              mean    v = SVS.sum v / fromIntegral (SVS.length v)
-              std mn    = mean . SVS.map ((^2) . abs . subtract mn) 
-              -}
-        
-    randomR (xs,ys) = runState . fmap vecR $ SVS.zipWithM (curry (state . randomR))
-        (rVec xs) (rVec ys)
--}
+{- TODO randomR ist undefiniert -}
 
 instance (KnownNat n, KnownNat m) => Random (L n m) where
     random = runState $ vecL <$> SVS.replicateM (state normal)

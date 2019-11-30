@@ -26,14 +26,6 @@ newtype L2 p = L2 {unL2 :: (p, p)}
 newtype SGD p = SGD {unSGD :: p}
 newtype Minibatch d p = Minibatch {unMinibatch :: (Int, d p)}
 
-instance Opt L2 where
-    data Ak L2 p = OpL2' {unOpL2' :: p}
-    
-    data Con L2 p =  K {unK :: p}
-    type Cons L2 p = Fractional p
-
-    regel' = undefined
-    
 instance Fractional p => Optimierung L2 p where
     newtype Akkum L2 p = OpL2 {unOpL2 :: p}
     
