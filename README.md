@@ -1,5 +1,9 @@
 # BLL: Funktionale Programmierung für neuronale Netze
 
+This is a project I did for my high school graduation, as such, it is written entirely in German and isn't particularly interesting 
+or good. It attempts to introduce a common interface for various neural network architectures in Haskell with a "pure" approach. It 
+is mainly based on the backprop Haskell library.
+
 Hier sind die Datein von der BLL. In der Datei Network sind verschiedene 
 Netzwerke, Aktivierungsfunktionen, Fehlerfunktionen und viele Hilfsfunktionen.
 In Tuple sind Implementierungen von dem Datentyp (:&) und auch inkomplette Instanzen von Matrizen
